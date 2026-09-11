@@ -47,34 +47,34 @@ def make_figure():
     t = np.arange(0, 60) / 12.0
 
    # ------------------------------------------------------------
-# 1) DATAINN: CSV-opplasting (siste kolonne = 60 temperaturverdier)
-# ------------------------------------------------------------
-# Forventning: CSV-filen har 60 rader, og SISTE kolonne inneholder månedlige middeltemperaturer.
-# Vi leser denne siste kolonnen med pandas og gjør den om til en numpy-array T.
-
-import pandas as pd
-
-uploaded = st.file_uploader(
-    "Last opp CSV (60 rader; siste kolonne = månedlig middeltemperatur)",
-    type=["csv"],
-)
-
-T = None
-
-def _load_T_from_csv(file) -> np.ndarray:
-    df = pd.read_csv(file)
-    if df.shape[1] < 1:
-        raise ValueError("CSV har ingen kolonner.")
-
-    # Plukk siste kolonne og gjør om til numerisk
-    s = pd.to_numeric(df.iloc[:, -1], errors="coerce")
-    s = s.dropna()
-
-    if len(s) != 60:
-        raise ValueError(f"Forventet 60 tall i siste kolonne, men fant {len(s)}.")
-
-    return s.to_numpy(dtype=float)
-
+    # 1) DATAINN: CSV-opplasting (siste kolonne = 60 temperaturverdier)
+    # ------------------------------------------------------------
+    # Forventning: CSV-filen har 60 rader, og SISTE kolonne inneholder månedlige middeltemperaturer.
+    # Vi leser denne siste kolonnen med pandas og gjør den om til en numpy-array T.
+    
+    
+    
+    uploaded = st.file_uploader(
+        "Last opp CSV (60 rader; siste kolonne = månedlig middeltemperatur)",
+        type=["csv"],
+    )
+    
+    T = None
+    
+    def _load_T_from_csv(file) -> np.ndarray:
+        df = pd.read_csv(file)
+        if df.shape[1] < 1:
+            raise ValueError("CSV har ingen kolonner.")
+    
+        # Plukk siste kolonne og gjør om til numerisk
+        s = pd.to_numeric(df.iloc[:, -1], errors="coerce")
+        s = s.dropna()
+    
+        if len(s) != 60:
+            raise ValueError(f"Forventet 60 tall i siste kolonne, men fant {len(s)}.")
+    
+        return s.to_numpy(dtype=float)
+    
     try:
         if uploaded is not None:
             T = _load_T_from_csv(uploaded)
