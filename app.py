@@ -209,13 +209,12 @@ st.divider()
 with st.expander("Original python kode, laget i PyCharm 2025.3.2.1 for python 3.14"):
     st.markdown(
         """
-1. Legg `app.py` i et GitHub-repo.
-2. Lag en `requirements.txt` i samme repo med f.eks.:
-   - `streamlit`
-   - `numpy`
-   - `matplotlib`
-3. Gå til Streamlit Community Cloud og velg **Deploy** fra repoet.
-
-Tips: Hvis du har flere figurer, kan du returnere en liste av `fig`-objekter og vise dem med flere `st.pyplot(...)`.
+```python
+def fibonacci(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+```
         """
     )
