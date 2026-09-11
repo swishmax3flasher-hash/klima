@@ -206,24 +206,21 @@ with st.expander("Original python kode, laget i PyCharm 2025.3.2.1 for python 3.
     st.markdown(
         """
 ```python
-"""
-Temperaturplott for Kirkenes lufthavn, 2021-2026
-****************************************************************
-Med utgangspunkt i dataene fra https://seklima.met.no/observations
-for de siste 5 åra, fordelt på måender, leger scriptet en minste
-kvadraters tilpasning til en syklisk funskjon
-
+# Temperaturplott for Kirkenes lufthavn, 2021-2026
+# ****************************************************************
+# Med utgangspunkt i dataene fra https://seklima.met.no/observations
+# for de siste 5 åra, fordelt på måender, leger scriptet en minste
+# kvadraters tilpasning til en syklisk funskjon
+#
 # T(t) = A sin(2pi x) + B cos(2pi x) + C,
-
-basert på oppskrift og oppgave fra heftet 'Klimamatematikk 1.0'
-fra UiT, Norges Arktiske Universitet, kapitttel 2.
-
-Løsningsforslag for oppgave # 2.9c, side 35
-
-Plottet viser et scatter-plott av temperaturmålingene, plotter den grafen som oppstår,
-viser gjennomsnittstemperatur og en lineær trendlinje for temperatur-utviklinga i perioden.
-
-"""
+#
+# basert på oppskrift og oppgave fra heftet 'Klimamatematikk 1.0'
+# fra UiT, Norges Arktiske Universitet, kapitttel 2.
+#
+# Løsningsforslag for oppgave 2.9c, side 35
+#
+# Plottet viser et scatter-plott av temperaturmålingene, plotter den grafen som oppstår,
+# viser gjennomsnittstemperatur og en lineær trendlinje for temperatur-utviklinga i perioden."""
 # Import av bibliotek
 import numpy as np
 import matplotlib.pyplot as plt
