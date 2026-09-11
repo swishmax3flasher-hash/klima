@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 st.set_page_config(
-    page_title="Matplotlib/Numpy – rapportvisning",
+    page_title="Klimamatematikk - Temperatursvingninger",
     layout="centered",
 )
 
