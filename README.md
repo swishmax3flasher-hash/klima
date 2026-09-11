@@ -2,7 +2,7 @@
 
 Med utgangspunkt i dataene fra https://seklima.met.no/observations for de siste 5 åra, fordelt på måender, leger scriptet en minste kvadraters tilpasning til en sykslisk funskjon
 
-T(t) = A sin(2$\pi$ x) + B cos(2$\pi$ x) + C,
+T(t) = A sin(2πx) + B cos(2πx) + C,
 
 basert på oppskrift og oppgave fra heftet 'Klimamatematikk 1.0' fra UiT, Norges Arktiske Universitet, kapitttel 2.
 
