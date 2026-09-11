@@ -191,6 +191,19 @@ with st.container(border=True):
     st.subheader("Plott")
     st.pyplot(fig, clear_figure=False)
 
+# Last ned plottet som PNG (uten å skrive til disk)
+import io
+buf = io.BytesIO()
+fig.savefig(buf, format="jpg", dpi=200, bbox_inches="tight")
+buf.seek(0)
+
+st.download_button(
+    label="Last ned plott (JPG)",
+    data=buf,
+    file_name="plot.jpg",
+    mime="image/jpg",
+)
+
 st.divider()
 
 with st.expander("Original python kode, laget i PyCharm 2025.3.2.1 for python 3.14"):
