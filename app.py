@@ -7,7 +7,7 @@ st.set_page_config(
     layout="centered",
 )
 
-st.title("Matplotlib/Numpy – rapportvisning")
+st.title("Temperatursvingninger - Kirkenes Lufthavn, 2021-2026")
 st.caption("En enkel Streamlit-innpakning for et script som lager én eller flere figurer fra faste data.")
 
 # ------------------------------------------------------------
