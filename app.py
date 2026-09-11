@@ -187,7 +187,9 @@ def make_figure():
 with st.spinner("Genererer figur …"):
     fig = make_figure()
 
-st.pyplot(fig, clear_figure=False)
+with st.container(border=True):
+    st.subheader("Plott")
+    st.pyplot(fig, clear_figure=False)
 
 st.divider()
 
