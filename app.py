@@ -3,11 +3,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 st.set_page_config(
-    page_title="Klimamatematikk - Temperatursvingninger",
+    page_title="Matplotlib/Numpy – rapportvisning",
     layout="centered",
 )
 
-st.title("Temperatursvingninger - Kirkenes Lufthavn, 2021-2026")
+st.title("Matplotlib/Numpy – rapportvisning")
 st.caption("En enkel Streamlit-innpakning for et script som lager én eller flere figurer fra faste data.")
 
 # ------------------------------------------------------------
@@ -21,25 +21,25 @@ st.caption("En enkel Streamlit-innpakning for et script som lager én eller fler
 
 
 def make_figure():
-    plt.close('all')  # Tømmer minnet for plot# Temperaturplott for Kirkenes lufthavn, 2021-2026
-"""
-Temperaturplott for Kirkenes lufthavn, 2021-2026
-****************************************************************
-Med utgangspunkt i dataene fra https://seklima.met.no/observations
-for de siste 5 åra, fordelt på måender, leger scriptet en minste
-kvadraters tilpasning til en syklisk funskjon
+    plt.close('all')  # Tømmer minnet for plot
+    """
+    Temperaturplott for Kirkenes lufthavn, 2021-2026
+    ****************************************************************
+    Med utgangspunkt i dataene fra https://seklima.met.no/observations
+    for de siste 5 åra, fordelt på måender, leger scriptet en minste
+    kvadraters tilpasning til en sykslisk funskjon
 
-T(t) = A sin(2pi x) + B cos(2pi x) + C,
+    T(t) = A sin(2pi x) + B cos(2pi x) + C,
 
-basert på oppskrift og oppgave fra heftet 'Klimamatematikk 1.0'
-fra UiT, Norges Arktiske Universitet, kapitttel 2.
+    basert på oppskrift og oppgave fra heftet 'Klimamatematikk 1.0'
+    fra UiT, Norges Arktiske Universitet, kapitttel 2.
 
-Løsningsforslag for oppgave 2.9c, side 35
+    Løsningsforslag for oppgave 2.9c, side 35
 
-Plottet viser et scatter-plott av temperaturmålingene, plotter den grafen som oppstår,
-viser gjennomsnittstemperatur og en lineær trendlinje for temperatur-utviklinga i perioden.
+    Plottet viser et scatter-plott av temperaturmålingene, plotter den grafen som oppstår,
+    viser gjennomsnittstemperatur og en lineær trendlinje for temperatur-utviklinga i perioden.
 
-"""
+    """
 
     # Definer liste for x (5 år med månedlige data = 60 måneder)
     # Tiden t måles i år, så vi deler på 12.0 for å få  / måneder av år
@@ -110,7 +110,7 @@ viser gjennomsnittstemperatur og en lineær trendlinje for temperatur-utviklinga
     plt.figure(num='Temperaturer Kirkenes', figsize=(12, 6))
     # Endre ikon
     # Plott de faktiske månedlige dataene som punkter
-    plt.plot(t, T, 'bo', label='Gjennomsnittlig månedstemperatur')
+    plt.plot(t, T, 'go', label='Gjennomsnittlig månedstemperatur')
     # Plott den beregnede sinus-kurven
     plt.plot(t_glatt, T_glatt, color='orange', linewidth=2,
              label=fr'Modell: $T(t) = {A:.1f}\sin(2\pi t) {B:+.1f}\cos(2\pi t) {C:+.1f}$')
@@ -187,29 +187,20 @@ viser gjennomsnittstemperatur og en lineær trendlinje for temperatur-utviklinga
 with st.spinner("Genererer figur …"):
     fig = make_figure()
 
-with st.container(border=True):
-    st.subheader("Plott")
-    st.pyplot(fig, clear_figure=False)
-
-# Last ned plottet som PNG (uten å skrive til disk)
-import io
-buf = io.BytesIO()
-fig.savefig(buf, format="jpg", dpi=200, bbox_inches="tight")
-buf.seek(0)
-
-st.download_button(
-    label="Last ned plott (JPG)",
-    data=buf,
-    file_name="KirkenesLufthavn_2021-26.jpg",
-    mime="image/jpg",
-)
+st.pyplot(fig, clear_figure=False)
 
 st.divider()
 
-with st.expander("Original python kode, laget i PyCharm 2025.3.2.1 for python 3.14"):
+with st.expander("Kode til oprinnelige oython fil (Streamlit Community Cloud)"):
     st.markdown(
         """
-```python
+1. Legg `app.py` i et GitHub-repo.
+2. Lag en `requirements.txt` i samme repo med f.eks.:
+   - `streamlit`
+   - `numpy`
+   - `matplotlib`
+3. Gå til Streamlit Community Cloud og velg **Deploy** fra repoet.
 
-"""
+Tips: Hvis du har flere figurer, kan du returnere en liste av `fig`-objekter og vise dem med flere `st.pyplot(...)`.
+        """
     )
