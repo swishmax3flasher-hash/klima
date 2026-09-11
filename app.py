@@ -31,7 +31,7 @@ def make_figure():
 
     T(t) = A sin(2pi x) + B cos(2pi x) + C,
 
-    basert på oppskrift og oppgave fra heftet 'Klimamatematikk 1.0'
+    basert på oppskrift og oppgave fra heftet 'Klimamatematikk 1.0' av Eivind Schneider
     fra UiT, Norges Arktiske Universitet, kapitttel 2.
 
     Løsningsforslag for oppgave 2.9c, side 35
