@@ -189,6 +189,11 @@ with st.spinner("Genererer figur …"):
 
 st.pyplot(fig, clear_figure=False)
 
+with st.container(border=True):
+    st.subheader("Plott")
+    st.pyplot(fig, clear_figure=False)
+
+
 st.divider()
 
 with st.expander("Kode til oprinnelige python fil (PyCharm 2025.3.2.1, python 3.14)"):
