@@ -110,7 +110,7 @@ def make_figure():
     plt.figure(num='Temperaturer Kirkenes', figsize=(12, 6))
     # Endre ikon
     # Plott de faktiske månedlige dataene som punkter
-    plt.plot(t, T, 'go', label='Gjennomsnittlig månedstemperatur')
+    plt.plot(t, T, 'bo', label='Gjennomsnittlig månedstemperatur')
     # Plott den beregnede sinus-kurven
     plt.plot(t_glatt, T_glatt, color='orange', linewidth=2,
              label=fr'Modell: $T(t) = {A:.1f}\sin(2\pi t) {B:+.1f}\cos(2\pi t) {C:+.1f}$')
