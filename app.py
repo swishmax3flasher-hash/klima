@@ -3,11 +3,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 st.set_page_config(
-    page_title="Matplotlib/Numpy – rapportvisning",
+    page_title="Temperaturer Kirkenes Lufthavn, 2021-26",
     layout="centered",
 )
 
-st.title("Matplotlib/Numpy – rapportvisning")
+st.title("Temperatur-svingninger ved Kirkenes Lufthavn")
 st.caption("En enkel Streamlit-innpakning for et script som lager én eller flere figurer fra faste data.")
 
 # ------------------------------------------------------------
@@ -191,7 +191,7 @@ st.pyplot(fig, clear_figure=False)
 
 st.divider()
 
-with st.expander("Kode til oprinnelige oython fil (Streamlit Community Cloud)"):
+with st.expander("Kode til oprinnelige python fil (PyCharm 2025.3.2.1, python 3.14)"):
     st.markdown(
         """
 1. Legg `app.py` i et GitHub-repo.
