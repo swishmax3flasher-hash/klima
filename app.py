@@ -200,7 +200,7 @@ buf.seek(0)
 st.download_button(
     label="Last ned plott (JPG)",
     data=buf,
-    file_name="plot.jpg",
+    file_name="KirkenesLufthavn_2021-26.jpg",
     mime="image/jpg",
 )
 
