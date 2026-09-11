@@ -217,12 +217,12 @@ Med utgangspunkt i dataene fra https://seklima.met.no/observations
 for de siste 5 åra, fordelt på måender, leger scriptet en minste
 kvadraters tilpasning til en syklisk funskjon
 
-# T(t) = A sin(2pi x) + B cos(2pi x) + C,
+' T(t) = A sin(2pi x) + B cos(2pi x) + C,
 
 basert på oppskrift og oppgave fra heftet 'Klimamatematikk 1.0'
 fra UiT, Norges Arktiske Universitet, kapitttel 2.
 
-Løsningsforslag for oppgave 2.9c, side 35
+Løsningsforslag for oppgave '2.9c, side 35
 
 Plottet viser et scatter-plott av temperaturmålingene, plotter den grafen som oppstår,
 viser gjennomsnittstemperatur og en lineær trendlinje for temperatur-utviklinga i perioden.
