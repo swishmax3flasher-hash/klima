@@ -24,6 +24,3 @@ Denne fila ble så tilpasset for bruk med streamlit, og prøvd ut lokalt på PC,
 
 Målet var å løse oppgaven, og for meg å bruke KI til bedre å forstå matematikken og dens metoder, samt bedre å beherske bruk av programmering til å anvende den matematiske kompetansen.
 
----
-
-*Your documents save automatically. Start writing.*
