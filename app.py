@@ -191,7 +191,7 @@ st.pyplot(fig, clear_figure=False)
 
 st.divider()
 
-with st.expander("Hvordan publisere (Streamlit Community Cloud)"):
+with st.expander("Original python kode, laget i PyCharm 2025.3.2.1 for python 3.14"):
     st.markdown(
         """
 1. Legg `app.py` i et GitHub-repo.
