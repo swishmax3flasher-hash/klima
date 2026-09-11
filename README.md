@@ -22,7 +22,7 @@ I den opprinnelige python fila ble følgende bibliotek brukt:
 
 Denne fila ble så tilpasset for bruk med streamlit, og prøvd ut lokalt på PC, før overføring til GitHub. 
 
-##Bruk av KI
+## Bruk av KI
 I arbeidet ble bruk av KI, med getmerlin.in, Gemini 3.1 pro og GeminiFlash. Produktet er en syntese av menneskelig og kunstig intelligens.
 
 Målet var å løse oppgaven, og for meg å bruke KI til bedre å forstå matematikken og dens metoder, samt bedre å beherske bruk av programmering til å anvende den matematiske kompetansen.
