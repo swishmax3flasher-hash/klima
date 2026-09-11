@@ -365,5 +365,4 @@ plt.savefig("opp_2_9_Kirkenes.jpg") # Lagrer plottet som bilde
 
 plt.show() # Viser plottet
 ```
-        """
     )
