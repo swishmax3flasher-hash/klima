@@ -55,40 +55,52 @@ def make_figure():
     
     
     uploaded = st.file_uploader(
-        "Last opp CSV (60 rader; siste kolonne = månedlig middeltemperatur)",
-        type=["csv"],
-    )
-    
-    T = None
-    
-    def _load_T_from_csv(file) -> np.ndarray:
-        df = pd.read_csv(file)
-        if df.shape[1] < 1:
-            raise ValueError("CSV har ingen kolonner.")
-    
-        # Plukk siste kolonne og gjør om til numerisk
-        s = pd.to_numeric(df.iloc[:, -1], errors="coerce")
-        s = s.dropna()
-    
-        if len(s) != 60:
-            raise ValueError(f"Forventet 60 tall i siste kolonne, men fant {len(s)}.")
-    
-        return s.to_numpy(dtype=float)
-    
+    "Last opp Excel (.xlsx) (60 rader; siste kolonne = månedlig middeltemperatur)",
+    type=["xlsx"],
+)
+
+T = None
+
+def _load_T_from_xlsx(file) -> np.ndarray:
+    # OBS: pd.read_excel() trenger en "engine" for .xlsx. I praksis betyr det at du må ha
+    # pakken openpyxl installert (og listet i requirements.txt ved deploy).
     try:
-        if uploaded is not None:
-            T = _load_T_from_csv(uploaded)
-            st.success("CSV lastet. Fant 60 temperaturverdier i siste kolonne.")
-        else:
-            st.info("Ingen CSV lastet opp ennå. Bruker eksempeldata.")
-            T = np.array([1.7, -6.1, -8.9, -8.6, -8.5, -3.2, -0.7, 4.1, 11.3, 15.1, 14.1, 7,
-                          2.7, -2.4, -8.9, -5.9, -6.6, -8.7, 0.6, 7.5, 9.9, 12.2, 14.5, 9.2,
-                          -0.3, -6.7, -10.8, -10.8, -9, -4.2, -2.8, 4.3, 9.8, 15.9, 15.9, 10.9,
-                          2.8, -1.5, -7, -9.5, -3.6, -4.4, -2.6, 5.1, 9.1, 13.9, 13.1, 11,
-                          3.7, -5.3, -6.5, -15.9, -12.5, -1.8, 1.8, 5.9, 11.4, 14.4, 11.8, 8.7], dtype=float)
+        import openpyxl  # noqa: F401
     except Exception as e:
-        st.error(str(e))
-        st.stop()
+        raise ValueError(
+            "Mangler avhengighet: openpyxl. Legg til 'openpyxl' i requirements.txt og deploy på nytt."
+        ) from e
+
+    # Leser første ark (sheet) som standard
+    df = pd.read_excel(file)
+    if df.shape[1] < 1:
+        raise ValueError("Excel-arket har ingen kolonner.")
+
+    # Plukk siste kolonne og gjør om til numerisk
+    s = pd.to_numeric(df.iloc[:, -1], errors="coerce")
+    s = s.dropna()
+
+    if len(s) != 60:
+        raise ValueError(f"Forventet 60 tall i siste kolonne, men fant {len(s)}.")
+
+    return s.to_numpy(dtype=float)
+
+try:
+    if uploaded is not None:
+        T = _load_T_from_xlsx(uploaded)
+        st.success("Excel-fil lastet. Fant 60 temperaturverdier i siste kolonne.")
+    else:
+        st.info("Ingen Excel-fil lastet opp ennå. Bruker eksempeldata.")
+        T = np.array([1.7, -6.1, -8.9, -8.6, -8.5, -3.2, -0.7, 4.1, 11.3, 15.1, 14.1, 7,
+                      2.7, -2.4, -8.9, -5.9, -6.6, -8.7, 0.6, 7.5, 9.9, 12.2, 14.5, 9.2,
+                      -0.3, -6.7, -10.8, -10.8, -9, -4.2, -2.8, 4.3, 9.8, 15.9, 15.9, 10.9,
+                      2.8, -1.5, -7, -9.5, -3.6, -4.4, -2.6, 5.1, 9.1, 13.9, 13.1, 11,
+                      3.7, -5.3, -6.5, -15.9, -12.5, -1.8, 1.8, 5.9, 11.4, 14.4, 11.8, 8.7], dtype=float)
+except Exception as e:
+    st.error(str(e))
+    st.stop()
+
+
 
     # Finn funksjonsverdiene for punktene
     # For å bruke funksjonene og pi kan man bruke numpy eller math
