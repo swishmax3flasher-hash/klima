@@ -8,7 +8,7 @@ st.set_page_config(
     layout="centered",
 )
 
-st.title("Temperatur-svingninger ved Kirkenes Lufthavn")
+st.title("Temperatur-svingninger basert på data fra seklima.met.no")
 st.caption("En enkel Streamlit-innpakning for et script som lager én eller flere figurer fra faste data.")
 
 # ------------------------------------------------------------
@@ -39,6 +39,25 @@ def make_figure():
 
     Plottet viser et scatter-plott av temperaturmålingene, plotter den grafen som oppstår,
     viser gjennomsnittstemperatur og en lineær trendlinje for temperatur-utviklinga i perioden.
+
+    -------------------------------------------------------------------------------------------
+
+    Det er nå mulig å laste inn data fra andre steder enn Kirkenes, ved at du henter dem ut
+    fra https://seklima.met.no/observations og velger sted, og laster ned csv filer selv, som
+    du kan mate inn her. 
+
+    Men det er viktig at du kurerer csv filen før opplasting. Min erfaring er at det er en
+    god del mangler ved disse filene, slik at temperatur-data, som skal være i kolonne 2,
+    til høyre, mangler. Pass på at det er temperatur-data for alle måneder i denne kolonnen.
+
+    Du må også slette første og siste kolonne fra csv-fila som skal lastes opp.
+
+    Min erfaring er at xlsx filene fra seklima er bedre, og at kanskje den beste metoden
+    foreløpig er å laste ned xlsx fila og så slette første og siste rad, før du lagrer 
+    som csv og laster opp. 
+
+    Jeg vet ikke hvor mye tid jeg får til å jobbe med denne appen framover, men håper at 
+    noen kan se nytten i den.
 
     """
 
