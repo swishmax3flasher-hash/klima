@@ -101,7 +101,6 @@ def _load_T_from_xlsx(file) -> np.ndarray:
         st.stop()
 
 
-
     # Finn funksjonsverdiene for punktene
     # For å bruke funksjonene og pi kan man bruke numpy eller math
     fx = np.sin(2 * np.pi * t)
