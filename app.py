@@ -161,7 +161,7 @@ def make_figure():
 
     T_glatt = Temp_glatt(t_glatt)
 
-    plt.figure(num='Temperaturer Kirkenes', figsize=(12, 6))
+    plt.figure(num='Temperaturer', figsize=(12, 6))
     # Endre ikon
     # Plott de faktiske månedlige dataene som punkter
     plt.plot(t, T, 'go', label='Gjennomsnittlig månedstemperatur')
@@ -204,9 +204,8 @@ def make_figure():
     # Tekster
     plt.xlabel('Tid (år)')
     plt.ylabel('Temperatur (°C)')
-    plt.suptitle(
-        'Minste kvadraters metode for temperatur (Oppgave 2.9 c) - Tall fra Kirkenes Lufthavn, inntil sept 2026')
-    plt.title('Trenden viser klar temperaturstigning de siste 5 åra, med 0.91°C pr år')
+    plt.title(
+        'Minste kvadraters metode for temperatur (Oppgave 2.9 c)')
     plt.legend(loc='lower left')  # Plasserer boksen med forklaring
 
     # Vil merke av hvilke måneder punktene tilhører
