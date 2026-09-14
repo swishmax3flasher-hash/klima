@@ -39,6 +39,10 @@ def make_figure():
 
     Plottet viser et scatter-plott av temperaturmålingene, plotter den grafen som oppstår,
     viser gjennomsnittstemperatur og en lineær trendlinje for temperatur-utviklinga i perioden.
+    
+    Trendlinja må naturligvis tas med en stor klype salt, fordi perioden vi ser på er så
+    kort, og fordi man lett kan vise at tilbake-rulling av dataene med simulerte temperaturer
+    et par tiår tilbake, vil gi anslag for temperaturer som rett og slett er tåpelige.
 
     -------------------------------------------------------------------------------------------
 
