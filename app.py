@@ -44,6 +44,9 @@ def make_figure():
     kort, og fordi man lett kan vise at tilbake-rulling av dataene med simulerte temperaturer
     et par tiår tilbake, vil gi anslag for temperaturer som rett og slett er tåpelige.
 
+    For Kirkenes lufthavn ville vi da fått en gjennomsnitts-temperatur på om lag 
+    1.5C - 0.91*50C for litt over 50 år siden (1972-73), eller om lag -44 grader celsius!
+
     -------------------------------------------------------------------------------------------
 
     Det er nå mulig å laste inn data fra andre steder enn Kirkenes, ved at du henter dem ut
